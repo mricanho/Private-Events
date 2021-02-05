@@ -7,22 +7,13 @@
       <article class="media">
           <div class="media-left">
             <figure class="image is-64x64">
-            <% if user_signed_in? %>
               <%= gravatar_image_tag(event.user.email, size: 64, alt: event.user.name) %>
-            <% else %>
-              <%= gravatar_image_tag('today', :alt => 'Github Default Gravatar', :gravatar => { :default => :identicon })%>
-            <% end %>
             </figure>
           </div>
           <div class="media-content">
-            <div class="content">
-              <% if user_signed_in? %>         
-                <strong><%= event.user.name %></strong><br />
-                <small><%= event.user.username %></small><br/>
-              <% else %>
-                <strong>Incognito</strong><br/>
-                <small>Redacted</small><br/>
-              <% end %>             
+            <div class="content">     
+              <strong><%= event.user.name %></strong><br />
+              <small><%= event.user.username %></small><br/>         
               <p><%= event.event %></p>
             </div>
             <% if user_signed_in? && current_user.id == event.user_id %>
