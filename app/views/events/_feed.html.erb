@@ -12,9 +12,10 @@
           </div>
           <div class="media-content">
             <div class="content">     
-              <strong><%= event.user.name %></strong><br />
+              <strong><%= event.title %></strong><br />
               <small><%= event.user.username %></small><br/>         
               <p><%= event.event %></p>
+              <small><%= content_tag(:p, "#{event.date.localtime.strftime("%a, %b %d, %Y")}  -  #{event.date.localtime.strftime("%I:%M %P")}", class: "date-time") %></small>
             </div>
             <% if user_signed_in? && current_user.id == event.user_id %>
               <nav class="level">
