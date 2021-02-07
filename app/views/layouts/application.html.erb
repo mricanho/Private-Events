@@ -26,7 +26,7 @@
 
   <body>
     <% if flash[:notice] %>
-  		<div class="notification is-dark">
+  		<div class="notification is-danger is-light">
         <button class="delete"></button>
   			<p class="notice"><%= notice %></p>
   		</div>
@@ -37,7 +37,7 @@
   			<p class="alert"><%= alert %></p>
   		</div>
   	<% end %>
-    <nav class="navbar is-dark">
+    <nav class="navbar is-light">
   		<div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
           <h1 class="title is-4">Private Events</h1>
@@ -48,21 +48,21 @@
           <div class="navbar-item">
 					<div class="field is-grouped is-mobile">
 						<p class="control">
-							<%= link_to 'New Event', new_event_path, class: "button is-success is-inverted" %>
+							<%= link_to 'New Event', new_event_path, class: "button is-danger is-rounded" %>
 						</p>
             <% if user_signed_in? %>
               <p class="control">
-                <%= link_to current_user.name, edit_user_registration_path, class: "button is-dark" %>
+                <%= link_to current_user.name, edit_user_registration_path, class: "button is-danger is-inverted" %>
               </p>
               <p>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-dark" %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-danger is-inverted" %>
               </p>
             <% else %>
             <p class="control">
-              <%= link_to 'Sign In', new_user_session_path, class: "button is-dark" %>
+              <%= link_to 'Sign In', new_user_session_path, class: "button is-danger is-inverted" %>
             </p>
 						<p class="control">
-              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-dark" %>
+              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-danger is-inverted" %>
             </p>
             <% end %>
             </div>
@@ -71,5 +71,16 @@
 			</div>
     </nav>
     <%= yield %>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+          const $notification = $delete.parentNode;
+
+          $delete.addEventListener('click', () => {
+            $notification.parentNode.removeChild($notification);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
