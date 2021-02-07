@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Event:</strong>
-  <%= @event.event %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <h5 class="title is-size-1">
+        <%= @event.title %>
+      </h5>
+    </div>
+    <p class="columns is-centered mt-5 is-size-3">
+      <%= @event.event %>
+    </p>
+    <p class="columns is-centered mt-3 is-size-5">
+      <%= @event.date %>
+    </p>
+    <p class="columns is-centered mt-1">
+      <%= link_to 'Edit', edit_event_path(@event) %> |
+      <%= link_to 'Back', events_path %>
+      </p>
+  </div>
+</div>
