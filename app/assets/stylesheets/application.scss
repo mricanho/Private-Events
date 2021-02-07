@@ -16,7 +16,7 @@
 
  @import "bulma";
 
- .navbar-brand .title {
+ .navbar-brand .title, .log-new, .sign-new {
   color: rgb(245, 65, 65);
 }
 
@@ -29,4 +29,8 @@
   img {
     border-radius: 50%;
   }
+}
+
+abbr[title="required"] {
+  display: none;
 }
