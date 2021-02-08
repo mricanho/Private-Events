@@ -4,6 +4,8 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
+    @upcoming = Event.upcoming.sort { |a, b| b.date <=> a.date }
+    @past = Event.past.sort { |a, b| b.date <=> a.date }
     @events = Event.all.order('date DESC')
   end
 
