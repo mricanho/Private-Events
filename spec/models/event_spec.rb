@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
+  
+  it { should belong_to(:user) }
+
   describe 'title presence' do
     it 'if title not present' do
       u = Event.new
