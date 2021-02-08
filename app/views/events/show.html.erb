@@ -16,10 +16,10 @@
   </div>
   <div class="cointainer">
     <% if @event.date.localtime.strftime("%m/%d/%Y %H:%M") > @date %>
-      <% if session[:current_user] && !current_user_now.attended_events.where(id: @event.id).any? %>
+      <% if current_user && !current_user_now.attended_events.where(id: @event.id).any? %>
         <%= form_for @attendance do |f| %>
           <%= hidden_field_tag :event_id, @event.id %>
-          <%=hidden_field_tag :user_id, session[:current_user]['id'], {id: 'user_user_id', name: 'user[user_id]'}%>
+          <%= hidden_field_tag :user_id, current_user['id'], {id: 'user_user_id', name: 'user[user_id]'}%>
           <%= f.submit 'Attend' %>
         <% end %>
       <% end %>
