@@ -8,12 +8,22 @@
     <p class="columns is-centered mt-5 is-size-3">
       <%= @event.event %>
     </p>
-    <p class="columns is-centered mt-3 is-size-5">
-      <%= @event.date %>
+    <p class="columns is-justify-content-flex-end mt-3 is-size-5">
+      <%= @event.date.localtime.strftime("%a, %b %d, %Y") %>
+      <%= @event.date.localtime.strftime("%I:%M %P")%>
     </p>
-    <p class="columns is-centered mt-1">
-      <%= link_to 'Edit', edit_event_path(@event) %> |
-      <%= link_to 'Back', events_path %>
-      </p>
+    
+  </div>
+  <div class="cointainer">
+    <% if @event.date.localtime.strftime("%m/%d/%Y %H:%M") > @date %>
+      <% if session[:current_user] && !current_user_now.attended_events.where(id: @event.id).any? %>
+        <%= form_for @attendance do |f| %>
+          <%= hidden_field_tag :event_id, @event.id %>
+          <%=hidden_field_tag :user_id, session[:current_user]['id'], {id: 'user_user_id', name: 'user[user_id]'}%>
+          <%= f.submit 'Attend' %>
+        <% end %>
+      <% end %>
+    <% end %>
+
   </div>
 </div>

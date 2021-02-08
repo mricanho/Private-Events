@@ -11,6 +11,14 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    if current_user
+      @event = Event.find(params[:id])
+      @date = date_now
+      @attendance = Attendance.new
+      @users_not_in = User.all.where.not(id: @event.attendee).where.not(id: current_user['id'])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /events/new

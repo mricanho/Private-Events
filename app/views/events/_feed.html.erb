@@ -2,7 +2,7 @@
   <p class="control is-1 mb-2">
     <%= link_to 'Upcoming Events', new_event_path, class: "button is-danger is-outlined" %>
   </p>
-  <% @events.each do | event | %>
+  <% @upcoming.each do | event | %>
     <div class="box">
       <article class="media">
           <div class="media-left">
@@ -12,7 +12,7 @@
           </div>
           <div class="media-content">
             <div class="content">     
-              <strong><%= event.title %></strong><br />
+              <strong><%= link_to event.title, event_path(event.id) %></strong><br />
               <small><%= event.user.username %></small><br/>         
               <p><%= event.event %></p>
               <small><%= content_tag(:p, "#{event.date.localtime.strftime("%a, %b %d, %Y")}  -  #{event.date.localtime.strftime("%I:%M %P")}", class: "date-time") %></small>
@@ -41,7 +41,7 @@
   <p class="control is-1 mb-2">
     <%= link_to 'Past Events', new_event_path, class: "button is-danger is-outlined" %>
   </p>
-  <% @events.each do | event | %>
+  <% @past.each do | event | %>
     <div class="box">
       <article class="media">
           <div class="media-left">
@@ -51,7 +51,7 @@
           </div>
           <div class="media-content">
             <div class="content">     
-              <strong><%= event.title %></strong><br />
+              <strong><%= link_to event.title, event_path(event.id) %></strong><br />
               <small><%= event.user.username %></small><br/>         
               <p><%= event.event %></p>
               <small><%= content_tag(:p, "#{event.date.localtime.strftime("%a, %b %d, %Y")}  -  #{event.date.localtime.strftime("%I:%M %P")}", class: "date-time") %></small>
