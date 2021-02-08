@@ -1,7 +1,7 @@
+# rubocop:disable Layout/LineLength
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  
   it { should belong_to(:user) }
 
   describe 'title presence' do
@@ -24,7 +24,7 @@ RSpec.describe Event, type: :model do
 
   describe 'all presence' do
     it 'if user_id not present' do
-      expect { Event.create!(title: 'event', event: 'description',) }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: User must exist')
+      expect { Event.create!(title: 'event', event: 'description') }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: User must exist')
     end
 
     it 'if all present' do
@@ -33,3 +33,5 @@ RSpec.describe Event, type: :model do
     end
   end
 end
+
+# rubocop:enable Layout/LineLength
