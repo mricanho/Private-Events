@@ -1,10 +1,7 @@
 # Private Events
 
-In this project, I built a fully functional blog in which users who are not logged in can't see who writes which post until they sign up and log in. The scope is to test the knowledge of routes, models, controllers, and views but primarily, the authentication and authorization of Ruby on Rails.
-
+In this project, I built a fully functional event website in which users can attend to other users' events. The scope is to test the knowledge of models, controllers, views, and tests but primarily, the associations between tables in the database.
 ![screenshot](./code.jpeg)
-
-![screenshot](./code2.jpeg)
 
 ## Live Demo
 <a href="https://aqueous-atoll-03599.herokuapp.com/">Visit Page</a>
@@ -13,6 +10,8 @@ In this project, I built a fully functional blog in which users who are not logg
 
 - Ruby 2.7.2
 - Ruby on Rails 6.1.1
+- Devise gem
+- Rspec gem
 
 ### Setup
 
