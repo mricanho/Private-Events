@@ -6,7 +6,7 @@ class AttendancesController < ApplicationController
       a.save
       msg = build_msg
     else
-      msg = "You are already attending"
+      msg = 'You are already attending'
     end
     redirect_to event_path(params[:event_id]), notice: msg
   end
@@ -14,9 +14,7 @@ class AttendancesController < ApplicationController
   private
 
   def build_msg
-    if (params[:user][:user_id]).to_i == current_user['id']
-      msg = "Done! You confirm your assistance"
-    end
+    msg = 'Done! You confirm your assistance' if (params[:user][:user_id]).to_i == current_user['id']
     msg
   end
 end
