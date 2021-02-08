@@ -4,7 +4,7 @@ In this project, I built a fully functional event website in which users can att
 ![screenshot](./code.jpeg)
 
 ## Live Demo
-<a href="https://aqueous-atoll-03599.herokuapp.com/">Visit Page</a>
+<a href="https://evening-retreat-54047.herokuapp.com/">Visit Page</a>
 
 ## Built With
 
