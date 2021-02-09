@@ -34,10 +34,11 @@
 				<div class="navbar-end">
           <div class="navbar-item">
 					<div class="field is-grouped is-mobile">
-						<p class="control">
-							<%= link_to 'New Event', new_event_path, class: "button is-danger is-rounded" %>
-						</p>
+						
             <% if session[:current_user] %>
+              <p class="control">
+							<%= link_to 'New Event', new_event_path, class: "button is-danger is-rounded" %>
+						  </p>
               <p class="control">
                 <%= link_to "My Events", user_path(session[:current_user]['id']), class: "button is-danger is-inverted" %>
               </p>
