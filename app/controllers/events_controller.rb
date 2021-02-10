@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   include UsersHelper
 
   def index
-    @upcoming = Event.upcoming.sort { |a, b| b.date <=> a.date }
+    @upcoming = Event.upcoming.sort { |a, b| a.date <=> b.date }
     @past = Event.past.sort { |a, b| b.date <=> a.date }
   end
 
@@ -40,6 +40,5 @@ class EventsController < ApplicationController
   def enroll
     @user = User.find_by(username: params[:username])
     current_user(@user.id) if @user && params[:password] == @user.password
-    # post sign_in_path, username: 'marcelomaidden', password: '12345678'
   end
 end
