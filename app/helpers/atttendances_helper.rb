@@ -1,2 +1,0 @@
-module AtttendancesHelper
-end
