@@ -37,6 +37,9 @@
 						
             <% if session[:current_user] %>
               <p class="control">
+							<%= link_to 'All Events', root_path, class: "button is-danger is-rounded is-outlined" %>
+						  </p>
+              <p class="control">
 							<%= link_to 'New Event', new_event_path, class: "button is-danger is-rounded" %>
 						  </p>
               <p class="control">
@@ -46,6 +49,9 @@
                 <%= link_to "Logout", sign_out_path, class:"button is-danger is-inverted" %>
               </p>
             <% else %>
+            <p class="control">
+							<%= link_to 'All Events', root_path, class: "button is-danger is-rounded is-outlined" %>
+						</p>
             <p class="control">
               <%= link_to 'Sign In', sign_in_path, class: "button is-danger is-inverted" %>
             </p>
