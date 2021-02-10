@@ -1,0 +1,54 @@
+<div class="container">
+  <p class="has-text-centered is-size-1 has-text-weight-bold mb-5">All My Events</p>
+  <div class="columns">
+    <div class="column is-mobile is-half">
+      <p class="title has-text-primary-dark has-text-centered">Upcoming Events</p>
+      <% if @upcoming.any? %>
+        <div class="upcoming-list">
+          <ul>
+            <% @attended_events.each do |event| %>
+              <% if event.date.localtime.strftime("%m/%d/%Y %H:%M") > @date %>
+              <li class="box">
+                <%= link_to  event.name , event_path(event.id) %>
+                <%= content_tag(:p, "#{event.date.localtime.strftime("%a, %b %d, %Y")}  -  #{event.date.localtime.strftime("%I:%M %P")}", class: "date-time") %>
+              </li>
+              <% end %>
+            <% end %>
+          </ul>
+       </div>
+      <% end %>
+    </div>
+    <div class= "column">
+      <p class="title has-text-danger-dark has-text-centered">Past Events</p>
+      <% if @past.any? %>
+        <div class="past-cont">
+          <ul class="events">
+            <% @attended_events.each do |event| %>
+              <% if event.date.localtime.strftime("%m/%d/%Y %H:%M") < @date %>
+                <li class="box">
+                  <%= link_to  event.name , event_path(event.id) %>
+                  <%= content_tag(:p, "#{event.date.localtime.strftime("%a, %b %d, %Y")}  -  #{event.date.localtime.strftime("%I:%M %P")}", class: "date-time") %>
+                </li>
+              <% end %>
+            <%end%>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="columns">
+    <% if @my_events.any? %>
+      <div class="column">
+        <p class="title has-text-dark has-text-centered">Created Events</p>
+        <ul class="created-events-list">
+          <% @my_events.each do |event| %>
+            <li class="box has-text-centered">
+              <%= link_to  event.name, event_path(event.id) %>
+              <%= content_tag(:p, "#{event.date.localtime.strftime("%a, %b %d, %Y")}  -  #{event.date.localtime.strftime("%I:%M %P")}", class: "date-time") %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>

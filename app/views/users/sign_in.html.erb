@@ -1,0 +1,32 @@
+<section class="section">
+	<div class="container">
+		<div class="columns is-centered box">
+			<div class="column is-4">
+				<h2 class="title is-1 log-new">Log in</h2>
+				<%= form_with model: @user, class: "login-form" do |f| %>
+
+				  <div class="field">
+				  	<div class="control">
+				    	<%= f.label :username, class: "label" %>
+              <%= f.text_field :username, class: "input is-small" %>
+				    </div>
+				  </div>
+
+				  <div class="field">
+				  	<div class="control">
+            <%= f.label :password, class: "label" %>
+            <%= f.password_field :password, class: "input is-small" %>
+						</div>
+					</div>
+
+				  <%= f.submit "Log in", class:"button is-danger is-light is-medium" %>
+				<% end %>
+				<br/>
+        <div class="is-size-9">
+          <%= link_to  "Sign up", new_user_path %>
+        </div>
+        <p class="flash"><%=flash.notice%></p>
+			</div>
+		</div>
+	</div>
+</section>
