@@ -1,24 +1,64 @@
-# README
+# Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this project, I built a fully functional event website in which users can attend to other users' events. The scope is to test the knowledge of models, controllers, views, and tests but primarily, the associations between tables in the database.
+![screenshot](./code.jpeg)
 
-Things you may want to cover:
+![screenshot](./code2.jpeg)
 
-* Ruby version
+## Live Demo
+<a href="https://evening-retreat-54047.herokuapp.com/">Visit Page</a>
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby 2.7.2
+- Ruby on Rails 6.1.1
+- Devise gem
+- Rspec gem
 
-* Database creation
+### Setup
 
-* Database initialization
+To run this project locally, please ensure you have Ruby and Ruby on Rails installed on your machine, then clone this repository by running.
 
-* How to run the test suite
+```bash
+git clone https://github.com/mricanho/members-only
+```
+Open your terminal and CD to the directory where you create the clone repository.
 
-* Services (job queues, cache servers, search engines, etc.)
+Now run:
 
-* Deployment instructions
+```bash
+bundle install
+```
+Then run:
 
-* ...
+```bash
+rails db:migrate
+```
+To set up the server put:
+```bash
+rails s
+```
+After this you can open your favorite web-browser and copy paste the next:
+
+```bash
+http://localhost:3000
+```
+### Author
+
+👤 *Miguel Ricaño*
+
+- Github: [@mricanho](https://github.com/mricanho)
+- Linkedin: [Miguel Ricaño](https://www.linkedin.com/in/mricanho/)
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Microverse
+- The Odin Project
+
+## 📝 License
+
+This project is [MIT](LICENSE) licensed.
