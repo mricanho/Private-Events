@@ -1,0 +1,41 @@
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <h5 class="title is-size-1">
+        <%= @event.name %>
+      </h5>
+    </div>
+    <p class="columns is-centered mt-5 is-size-3">
+      <%= @event.description %>
+    </p>
+    <p class="columns is-justify-content-flex-end mt-3 is-size-5">
+      <%= @event.date.localtime.strftime("%a, %b %d, %Y") %>
+      <%= @event.date.localtime.strftime("%I:%M %P")%>
+    </p>
+    <span class="is-justify-content-flex-start">
+      <% if @event.date.localtime.strftime("%m/%d/%Y %H:%M") > @date %>
+        <% if session[:current_user] && !current_user_now.attended_events.where(id: @event.id).any? %>
+          <%= simple_form_for(@attendance) do |f| %>
+            <%= hidden_field_tag :event_id, @event.id %>
+      <%=hidden_field_tag :user_id, session[:current_user]['id'], {id: 'user_user_id', name: 'user[user_id]'}%>
+            <%= f.button :submit, class: "button is-danger" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </span>  
+    <% if @event.attendee.any? %>
+      <h4 class="columns subtitle is-centered">
+        Attendees
+      </h4>
+      <div class="content columns is-centered">
+        <ol type="1">
+          <% @event.attendee.each do |attendee| %>
+            <li>
+              <%= attendee.username %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    <% end %>
+  </div>  
+</div>
