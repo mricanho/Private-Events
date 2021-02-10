@@ -13,8 +13,9 @@ In this project, I built a fully functional event website in which users can att
 
 - Ruby 2.7.2
 - Ruby on Rails 6.1.1
-- Devise gem
 - Rspec gem
+- Simple_form gem
+- Bulma
 
 ### Setup
 
