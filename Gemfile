@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bulma-rails', '~> 0.9.1'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
+gem "sentry-ruby"
+gem "sentry-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
