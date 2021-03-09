@@ -1,6 +1,6 @@
 # Private Events
 
-In this project, I built a fully functional event website in which users can attend to other users' events. The scope is to test the knowledge of models, controllers, views, and tests but primarily, the associations between tables in the database.
+In this project, I built a fully functional event website in which users can attend to other user's events. The scope is to test the knowledge of models, controllers, views, and tests but primarily, the associations between tables in the database.
 ![screenshot](./code.jpeg)
 
 ![screenshot](./code2.jpeg)
